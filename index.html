@@ -36,28 +36,30 @@
         <h1>Foul Enforcement Visualizer</h1>
     </nav>
 
-    <!-- ADD ICONS START -->
-    <section class="toolbar">
-        <button onclick="createMaker ('x')">Add X</button>
-        <button onclick="createMaker ('flag')">Add Flag</button>
-        <button onclick="createMaker ('ball')">Add Ball</button>
+    <!-- APP START -->
+    <div class="app_container">
+        <!-- ADD ICONS START -->
+        <section class="toolbar">
+            <button onclick="createMarker ('x')">Add X</button>
+            <button onclick="createMarker ('flag')">Add Flag</button>
+            <button onclick="createMarker ('ball')">Add Ball</button>
+            <!-- Input to add LOS-->
+            <input type="number" id="losInput" placeholder="Enter LOS (Yards)" min="0" max="100">
+            <button onclick="setupLOS()">Set LOS</button>
+            <button onclick="resetField()">Clear Markers</button>
+        </section>
+        <!-- ADD ICONS END -->
+        <!-- FIELD START -->
+        <section class="field_container">
+            <div class="field" id="field">
+                <div class="los_line" id="losLine"></div>
+            </div>
+            <!-- Field content goes here -->
+        </section>
+        <!-- FIELD END -->
+    </div>
+    <!-- APP END -->
 
-        <!-- Input to add LOS-->
-        <input type="number" id="losInput" placeholder="Enter LOS (Yards)" min="0" max="100">
-        <button onclick="setLOS()">Set LOS</button>
-        <button onclick="clearMarkers()">Clear Markers</button> 
-    </section>
-    <!-- ADD ICONS END -->
-
-    <!-- FIELD START -->
-     
-    <section class="field_container">
-        <div class="field" id="field">
-            <div class="los_line" id="losLine"></div>
-        </div>
-        <!-- Field content goes here -->
-    </section>
-    <!-- FIELD END -->
 
     <!-- FOOTER START -->
      <footer class="footer">
