@@ -27,9 +27,47 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">     
     <!-- FONT AWESOME KIT -->
     <script src="https://kit.fontawesome.com/ef268928f6.js" crossorigin="anonymous"></script>
-    <title>App Foul Application</title>
+    <title>Foul Enforcement Visualizer</title>
 </head>
+
 <body>
-    
+
+    <nav>
+        <h1>Foul Enforcement Visualizer</h1>
+    </nav>
+
+    <!-- ADD ICONS START -->
+    <section class="toolbar">
+        <button onclick="createMaker ('x')">Add X</button>
+        <button onclick="createMaker ('flag')">Add Flag</button>
+        <button onclick="createMaker ('ball')">Add Ball</button>
+
+        <!-- Input to add LOS-->
+        <input type="number" id="losInput" placeholder="Enter LOS (Yards)" min="0" max="100">
+        <button onclick="setLOS()">Set LOS</button>
+        <button onclick="clearMarkers()">Clear Markers</button> 
+    </section>
+    <!-- ADD ICONS END -->
+
+    <!-- FIELD START -->
+     
+    <section class="field_container">
+        <div class="field" id="field">
+            <div class="los_line" id="losLine"></div>
+        </div>
+        <!-- Field content goes here -->
+    </section>
+    <!-- FIELD END -->
+
+    <!-- FOOTER START -->
+     <footer class="footer">
+
+        <section class="footer__section" id="footer">
+            <p>Todos los derechos reservados 2026 &#174;</p>
+        </section>
+     </footer>
+    <!-- FOOTER END -->
+<!-- SCRIPTS -->
+ <script src="./scripts.js" type="text/javascript"></script>
 </body>
 </html>
