@@ -44,8 +44,8 @@
             <button onclick="createMarker ('flag')">Add Flag</button>
             <button onclick="createMarker ('ball')">Add Ball</button>
             <!-- Input to add LOS-->
-            <input type="number" id="losInput" placeholder="Enter LOS (Yards)" min="0" max="100">
-            <button onclick="setupLOS()">Set LOS</button>
+            <input type="range" id="losSlider" min="0" max="100" value="50" oninput="setupLOS()">
+            <p id="losDisplay">LOS: 50</p>
             <button onclick="resetField()">Clear Markers</button>
         </section>
         <!-- ADD ICONS END -->
