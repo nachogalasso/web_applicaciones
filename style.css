@@ -6,6 +6,7 @@
   /* Lightmode */
   --primary: #f9f5ff;
   --secondary: #003036;
+  --field: #13763e;
   --mainSpacing: .1rem;
 }
 
@@ -66,25 +67,25 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 38rem;
-    height: 140rem;
+    width: 380px;
+    height: 1400px;
 }
 
 .field {
     position: relative;
-    width: 34rem;
-    height: 120rem;
-    background-color: #2e8b57;
-    border: 0.5rem solid var(--primary);
-    border-radius: 0.5rem;
+    width: 340px;
+    height: 1200px;
+    background-color: var(--field);
+    border: 6px solid var(--primary);
+    border-radius: 5px;
     overflow: hidden;
 
     background-image: repeating-linear-gradient(
         to bottom,
-        white 0rem,
-        white 0.5rem,
-        transparent 0.5rem,
-        transparent 10rem
+        white 0px,
+        white 3px,
+        transparent 3px,
+        transparent 100px
     );
 }
 
@@ -92,15 +93,15 @@ body {
     position: absolute;
     top: 0;
     width: 100%;
-    height: 0.4rem;
+    height: 6px;
     background-color: #a41111;
     display: none;
 }
 
 .marker {
     position: absolute;
-    width: 3rem;
-    height: 3rem;
+    width: 30px;
+    height: 30px;
     cursor: grab;
     user-select: none;
 }
@@ -108,33 +109,33 @@ body {
 @media screen and (min-width: 1024px) {
     .field_container {
         flex-direction: row;
-        width: 140rem;
-        height: 40rem;
-        margin: 4rem 0;
+        width: 1400px;
+        height: 400px;
+        margin: 40px 0;
     }
 
     .field {
         position: relative;
-        width: 120rem;
-        height: 40rem;
-        background-color: #2e8b57;
-        border: 0.5rem solid var(--primary);
-        border-radius: 0.5rem;
+        width: 1200px;
+        height: 400px;
+        background-color: var(--field);
+        border: 7px solid var(--primary);
+        border-radius: 5px;
         overflow: hidden;
 
         background-image: repeating-linear-gradient(
             to right,
-            white 0rem,
-            white 0.5rem,
-            transparent 0.5rem,
-            transparent 10rem
+            white 0px,
+            white 1px,
+            transparent 0px,
+            transparent 50px
             );
     }
 
     .los_line {
         position: absolute;
         top: 0;
-        width: 0.4rem;
+        width: 6px;
         height: 100%;
         background-color: #a41111;
         display: none;

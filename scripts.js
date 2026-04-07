@@ -24,8 +24,8 @@ function createMarker(type) {
         marker.src = './assets/icons/ball_nbg.webp';
     }
 
-    marker.style.left = '1rem';
-    marker.style.top = '1rem';
+    marker.style.left = '10px';
+    marker.style.top = '10px';
     
     field.appendChild(marker);
 
@@ -48,8 +48,8 @@ function enableDrag(marker) {
         let x = e.clientX - rect.left - offsetX;
         let y = e.clientY - rect.top - offsetY;
 
-        currentMarker.style.left = x + 'rem';
-        currentMarker.style.top = y + 'rem';
+        currentMarker.style.left = x + 'px';
+        currentMarker.style.top = y + 'px';
     });
 
     document.addEventListener('mouseup', () => {
@@ -62,14 +62,42 @@ function enableDrag(marker) {
 }
 
 // Set up the LOS
-function setupLOS() {
-    const yard = document.getElementById('losInput').value;
-    if (yard < 0 || yard > 100) return;
+function isVerticalField() {
+    const field = document.getElementById("field");
+    return field.offsetHeight > field.offsetWidth;
+}
 
+
+function setupLOS() {
+    const yard = parseInt(document.getElementById('losSlider').value);
+    if (isNaN(yard)) return;
+    const absoluteYard = yard + 10;
+
+    // To display the LOS line
     const losLine = document.getElementById('losLine');
-    losLine.style.left = (yard * 1) + 'rem';
+    if (isVerticalField()) {
+        losLine.style.top = (absoluteYard * 10) + 'px';
+        losLine.style.left = '0px';
+    } else {
+        losLine.style.left = (absoluteYard * 10) + 'px';
+        losLine.style.top = '0px';
+    }
+
     losLine.style.display = 'block';
 
+    // Display football-style text
+    let displayText = "";
+
+    if (yard < 50) {
+        displayText = "A-" + yard;
+    } else if (yard === 50) {
+        displayText = "50";
+    } else {
+        displayText = "B-" + (100 - yard);
+    }
+
+    document.getElementById('losDisplay').innerText = "LOS: " + displayText;
+    
 }
 
 //  Reset the field
