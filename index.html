@@ -40,19 +40,35 @@
     <div class="app_container">
         <!-- ADD ICONS START -->
         <section class="toolbar">
-            <button onclick="createMarker ('x')">Add X</button>
-            <button onclick="createMarker ('flag')">Add Flag</button>
-            <button onclick="createMarker ('ball')">Add Ball</button>
+            
             <!-- Input to add LOS-->
-            <input type="range" id="losSlider" min="0" max="100" value="50" oninput="setupLOS()">
-            <p id="losDisplay">LOS: 50</p>
-            <button onclick="resetField()">Clear Markers</button>
+            <div class="set_los">
+                <p class="lines">Line of Scrimmage:</p>
+                <input type="range" id="losSlider" min="0" max="100" value="50" oninput="setupLOS()">
+                <p class="lines" id="losDisplay">LOS: 50</p>
+            </div>
+            <div class="set_los">
+                <p class="lines">Line of Gain:</p>
+                <input type="range" id="ltgSlider" min="0" max="100" value="50" oninput="setupLTG()">
+                <p class="lines" id="ltgDisplay">LTG: 50</p>
+            </div>
+
+            <!-- Add markers -->
+             <dv class="btns_container">
+                <button class="btn" onclick="createMarker ('x')">Add X</button>
+                <button class="btn" onclick="createMarker ('flaga')">A Foul</button>
+                <button class="btn" onclick="createMarker ('flagb')">B Foul</button>
+                <button class="btn" onclick="createMarker ('ball')">Ball</button>
+                <button class="btn" onclick="createMarker ('cop')">COP</button>
+                <button class="btn" onclick="resetField()">Reset</button>
+            </dv>
         </section>
         <!-- ADD ICONS END -->
         <!-- FIELD START -->
         <section class="field_container">
             <div class="field" id="field">
                 <div class="los_line" id="losLine"></div>
+                <div class="ltg_line" id="ltgLine"></div>
             </div>
             <!-- Field content goes here -->
         </section>

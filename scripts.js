@@ -16,12 +16,20 @@ function createMarker(type) {
         marker.src = './assets/icons/xicon_nbg.webp';
     }
     
-    if (type === 'flag') {
-        marker.src = './assets/icons/flag_nbg.webp';
+    if (type === 'flagb') {
+        marker.src = './assets/icons/flag_nbgb.webp';
+    }
+    
+    if (type === 'flaga') {
+        marker.src = './assets/icons/flag_nbga.webp';
     }
     
     if (type === 'ball') {
         marker.src = './assets/icons/ball_nbg.webp';
+    }
+
+    if (type === 'cop') {
+        marker.src = './assets/icons/cop_nbg.webp';
     }
 
     marker.style.left = '10px';
@@ -97,6 +105,39 @@ function setupLOS() {
     }
 
     document.getElementById('losDisplay').innerText = "LOS: " + displayText;
+    
+}
+
+// Line to Gain
+function setupLTG() {
+    const yard = parseInt(document.getElementById('ltgSlider').value);
+    if (isNaN(yard)) return;
+    const absoluteYard = yard + 10;
+
+    // To display the LTG line
+    const ltgLine = document.getElementById('ltgLine');
+    if (isVerticalField()) {
+        ltgLine.style.top = (absoluteYard * 10) + 'px';
+        ltgLine.style.left = '0px';
+    } else {
+        ltgLine.style.left = (absoluteYard * 10) + 'px';
+        ltgLine.style.top = '0px';
+    }
+
+    ltgLine.style.display = 'block';
+
+    // Display football-style text
+    let displayText = "";
+
+    if (yard < 50) {
+        displayText = "A-" + yard;
+    } else if (yard === 50) {
+        displayText = "50";
+    } else {
+        displayText = "B-" + (100 - yard);
+    }
+
+    document.getElementById('ltgDisplay').innerText = "LTG: " + displayText;
     
 }
 
